@@ -1,14 +1,11 @@
 const axios = require('axios');
 
-const findAllBooking = () => {
-  axios({
-    method:'get',
-    url:'http://localhost:3000/dist/bundle.js'
+const findAllBooking = (req, res, next) => {
+  axios.get('http://localhost:3000/booking')
+  .then((bookings) => {
+    res.send(bookings.data);
   })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.log(err));
+  .catch((err) => console.log(err));
 } 
 
 
